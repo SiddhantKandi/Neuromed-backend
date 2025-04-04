@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import pool from './db/db.js'
-import {errorHandler} from './middlewares/errorHandler.middleware.js'
+// import {errorHandler} from './middlewares/errorHandler.middleware.ts'
 
 const app = express();
 
@@ -17,7 +17,7 @@ app.use(express.json()); //Handles the incoming data and converts it into jason 
 app.use(express.urlencoded({extended : true})); //Handles the form data and converts it into JSON format
 
 //Error Handling middlewares
-app.use(errorHandler);
+// app.use(errorHandler);
 
 
 //DATABASE TESTING
