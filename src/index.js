@@ -8,6 +8,7 @@ const app = express();
 app.use(cors())
 
 
+
 const port = process.env.PORT || 8000;
 
 
@@ -16,7 +17,8 @@ app.use(express.json()); //Handles the incoming data and converts it into jason 
 app.use(express.urlencoded({extended : true})); //Handles the form data and converts it into JSON format
 
 //Error Handling middlewares
-app.use(errorHandler());
+app.use(errorHandler);
+
 
 //DATABASE TESTING
 app.get('/',async (req,res) => {
