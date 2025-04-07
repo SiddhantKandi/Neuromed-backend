@@ -1,12 +1,13 @@
 import express from 'express';
 import cors from 'cors';
-import pool from './db/db.js'
+// import pool from './db/db.js'
 // import {errorHandler} from './middlewares/errorHandler.middleware.ts'
+import connectCloudinary from './config/cloudinary.js'
 
 const app = express();
 
 app.use(cors())
-
+connectCloudinary();
 
 
 const port = process.env.PORT || 8000;
@@ -21,10 +22,14 @@ app.use(express.urlencoded({extended : true})); //Handles the form data and conv
 
 
 //DATABASE TESTING
-app.get('/',async (req,res) => {
-    const result = await pool.query("SELECT current_database()");
-    res.send(`The database name is : ${result.rows[0].current_database}`);
-})
+//Manually adding the database
+// app.get('/',async (req,res) => {
+//     const result = await pool.query("SELECT current_database()");
+//     res.send(`The database name is : ${result.rows[0].current_database}`);
+// })
+
+//Using Prisma
+
 
 //Routes
 
